@@ -1,4 +1,4 @@
-const loadPhone = async (searchText="13", isShowAll) =>{
+const loadPhone = async (searchText="samsung", isShowAll) =>{
     const res =await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await res.json();
     const phones= data.data;
@@ -14,7 +14,7 @@ const displayPhones = (phones, isShowAll) =>{
 
     //display show all button if there is more than 12 phones
     const showAllContainer = document.getElementById("show-all-container");
-    if(phones.length >12 && !isShowAll){
+    if(phones.length >9 && !isShowAll){
         showAllContainer.classList.remove("hidden");
     }
     else{
@@ -23,24 +23,24 @@ const displayPhones = (phones, isShowAll) =>{
 
 
 
-    //display first 12 phones if isShowAll not clicked
+    //display first 9 phones if isShowAll not clicked
     if(!isShowAll){
-        phones = phones.slice(0,12);
+        phones = phones.slice(0,9);
     }
     
 
     phones.forEach(phone => {
         //2.create a div
         const phoneCard = document.createElement('div');
-        phoneCard.classList=`card bg-base-100 shadow-xl`;
+        phoneCard.classList=`card bg-base-100 border-[1px]`;
         //3. set innerHTML to the div
         phoneCard.innerHTML=`
-                    <figure class="px-10 pt-10">
-                      <img src="${phone.image}" alt="phone" class="rounded-xl" />
+                    <figure class="mx-10 mt-10 bg-[#0D6EFD0D]">
+                      <img src="${phone.image}" alt="phone" class="rounded-xl py-[40px]" />
                     </figure>
                     <div class="card-body items-center text-center">
                       <h2 class="card-title">${phone.phone_name}</h2>
-                      <p>If a dog chews shoes whose shoes does he choose?</p>
+                      <p>There are many variations of passages of available, but the majority have suffered</p>
                       <div class="card-actions">
                         <button onclick="handleShowDetail('${phone.slug}')" class="btn btn-primary">Show Details</button>
                       </div>
@@ -71,7 +71,7 @@ const showPhoneDetails = (phone) =>{
     <figure class="px-10 pt-10 bg-[#0D6EFD0D] text-center">
     <img src="${phone.image}" alt="phone" class="rounded-xl mx-auto pb-[50px]" />
     </figure> 
-    <h2 class="font-bold text-lg">${phone.name}</h2>
+    <h2 class="font-bold text-3xl">${phone.name}</h2>
     <p class="text-base">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
     <p class="font-bold text-base">Storage :<span class="font-medium text-base">${phone.mainFeatures.storage}</span></p>
     <p class="font-bold text-base">Display Size : <span class="font-medium text-base">${phone.mainFeatures.displaySize}</span></p>
@@ -80,7 +80,7 @@ const showPhoneDetails = (phone) =>{
     <p class="font-bold text-base">Slug :<span class="font-medium text-base">${phone.slug}</span></p>
     <p class="font-bold text-base">Release data :<span class="font-medium text-base">${phone?.releaseDate}</span></p>
     <p class="font-bold text-base">Brand :<span class="font-medium text-base">${phone.brand}</span></p>
-    <p class="font-bold text-base">GPS :<span class="font-medium text-base">${phone?.others?.GPS}</span></p>`
+    <p class="font-bold text-base">GPS :<span class="font-medium text-base">${phone?.others?.GPS || 'No Gps'}</span></p>`
     show_details_modal.showModal();
 }
 
