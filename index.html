@@ -31,15 +31,39 @@
               </div>
         </section>
 
+        <!--spinner or loader-->
+        
+
         <!--search result section-->
         <section>
+            <div class="container mx-auto text-center my-4 hidden" id="spinner">
+                <span class="loading loading-dots loading-lg text-blue-500"></span>
+            </div>
             <div id="phone-container" class="container mx-auto gap-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">  
             </div>
 
              <!--show all phones button--> 
-            <div class="container mx-auto text-center w-full hidden" id="show-all-container">
-                <button class="btn bg-blue-500 text-white px-[36px]">Show All</button>
+            <div class="container mx-auto text-center w-full hidden mt-[50px]" id="show-all-container">
+                <button onclick="handleShowAll()" class="btn bg-blue-500 text-white px-[36px]">Show All</button>
              </div>
+        </section>
+
+        <!--show details modal-->
+        <section>
+            <!-- Open the modal using ID.showModal() method -->
+            <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+              <div class="modal-box">
+                <div id="show-detail-container">
+
+                </div>
+                <div class="modal-action">
+                  <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn bg-[#DC3545] text-white">Close</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
         </section>
     </main>
     <footer>
