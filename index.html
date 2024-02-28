@@ -17,14 +17,14 @@
         <section class="container mx-auto w-full my-[100px]">
             <div class="relative flex w-full min-w-[200px] max-w-[600px] mx-auto">
                 <button
-                  class="!absolute right-1 top-1 rounded bg-pink-500 py-4 px-[38px] text-center align-middle text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] active:shadow-none"
+                  class="!absolute right-1 top-1 rounded bg-blue-500 py-4 px-[38px] text-center align-middle text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 active:opacity-[0.85] active:shadow-none"
                   type="button" onclick="handleSearch()"
                 >
                   Search
                 </button>
                 <input
                   type="text" id="search-field"
-                  class="h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-[17px] pr-20 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                  class="h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-[17px] pr-20 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-blue-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                   placeholder="Search your phone"
                   required
                 />
@@ -33,9 +33,13 @@
 
         <!--search result section-->
         <section>
-            <div id="phone-container" class="container mx-auto gap-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                
+            <div id="phone-container" class="container mx-auto gap-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">  
             </div>
+
+             <!--show all phones button--> 
+            <div class="container mx-auto text-center w-full hidden" id="show-all-container">
+                <button class="btn bg-blue-500 text-white px-[36px]">Show All</button>
+             </div>
         </section>
     </main>
     <footer>
