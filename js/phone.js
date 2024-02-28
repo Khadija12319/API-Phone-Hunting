@@ -1,5 +1,5 @@
-const loadPhone = async () =>{
-    const res =await fetch('https://openapi.programming-hero.com/api/phones?search=iphone');
+const loadPhone = async (searchText) =>{
+    const res =await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
     const data = await res.json();
     const phones= data.data;
     console.log(phones);
@@ -9,6 +9,10 @@ const loadPhone = async () =>{
 const displayPhones = phones =>{
     //1. call phone container
     const phoneContainer = document.getElementById('phone-container');
+
+    //clear phone container cards before adding new cards
+    phoneContainer.textContent='';
+
     phones.forEach(phone => {
         //2.create a div
         const phoneCard = document.createElement('div');
@@ -30,4 +34,12 @@ const displayPhones = phones =>{
     });
 }
 
-loadPhone();
+//button handler
+
+const handleSearch = () =>{
+   // console.log("button added");
+   const searchText = document.getElementById("search-field").value;
+   loadPhone(searchText);
+}
+
+//loadPhone();
